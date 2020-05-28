@@ -14,7 +14,7 @@ export class CategoryService{
 
 
   getCategories() {
-    this.http.get<{message: string, categories: any}>('http://localhost:3000/api/category')
+    this.http.get<{message: string, categories: any}>('https://vendoorback.herokuapp.com/api/category')
       .pipe(map((catData) => {
         return catData.categories.map(cat => {
           return {
@@ -34,7 +34,7 @@ export class CategoryService{
   }
 
   deleteCategory(id: string){
-    this.http.delete("http://localhost:3000/api/category/" + id)
+    this.http.delete("https://vendoorback.herokuapp.com/api/category/" + id)
       .subscribe(() => {
         console.log("Deleted");
         const updatedComms = this.categories.filter(category => category.id !== id);
@@ -44,7 +44,7 @@ export class CategoryService{
   }
 
   addCategory(name: string){
-    this.http.post("http://localhost:3000/api/category", {name:name})
+    this.http.post("https://vendoorback.herokuapp.com/api/category", {name:name})
       .subscribe(response => {
         console.log(response);
       });

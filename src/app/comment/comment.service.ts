@@ -21,7 +21,7 @@ export class CommmentService{
         content: content
       };
     console.log("readyy");
-    this.http.post<{message: string, productId: string}>('http://localhost:3000/api/comment', comment)
+    this.http.post<{message: string, productId: string}>('https://vendoorback.herokuapp.com/api/comment', comment)
       .subscribe((responseData) => {
         console.log("it is sent");
         console.log(responseData);
@@ -35,7 +35,7 @@ export class CommmentService{
 
   getComments(productId:string){
     //return this.http.get('http://localhost:3000/api/comment');
-    this.http.get<{message: string, comments: any}>('http://localhost:3000/api/comment/' + productId)
+    this.http.get<{message: string, comments: any}>('https://vendoorback.herokuapp.com/api/comment/' + productId)
       .pipe(map((commentData) => {
         return commentData.comments.map(comment => {
           return {
@@ -57,7 +57,7 @@ export class CommmentService{
   }
 
   getAllComments(){
-    this.http.get<{message: string, comments: any}>('http://localhost:3000/api/comment')
+    this.http.get<{message: string, comments: any}>('https://vendoorback.herokuapp.com/api/comment')
       .pipe(map((commentData) => {
         return commentData.comments.map(comment => {
           return {
@@ -79,7 +79,7 @@ export class CommmentService{
   }
 
   deleteComment(id: string){
-    this.http.delete("http://localhost:3000/api/comment/" + id)
+    this.http.delete("https://vendoorback.herokuapp.com/api/comment/" + id)
       .subscribe(() => {
         console.log("Deleted");
         const updatedComms = this.comments.filter(comment => comment.id !== id);

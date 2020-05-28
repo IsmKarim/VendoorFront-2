@@ -20,7 +20,7 @@ export class OrdersService{
   getOrders(coopId: string) {
     this.orders = [];
     this.orderProducts = [];
-    this.http.get<{message: string, orders: any}>('http://localhost:3000/api/order')
+    this.http.get<{message: string, orders: any}>('https://vendoorback.herokuapp.com/api/order')
       .pipe(map((orderData) => {
         console.log("in");
         console.log(orderData);
@@ -67,7 +67,7 @@ export class OrdersService{
   getAllOrders() {
     this.orders = [];
     this.orderProducts = [];
-    this.http.get<{message: string, orders: any}>('http://localhost:3000/api/order')
+    this.http.get<{message: string, orders: any}>('https://vendoorback.herokuapp.com/api/order')
       .pipe(map((orderData) => {
         console.log("in");
         console.log(orderData);

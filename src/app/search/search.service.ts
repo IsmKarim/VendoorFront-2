@@ -14,7 +14,7 @@ export class SearchService{
 
 
   getProducts(query: string) {
-    this.http.get<{message: string, products: any}>('http://localhost:3000/api/products/s/' + query)
+    this.http.get<{message: string, products: any}>('https://vendoorback.herokuapp.com/api/products/s/' + query)
       .pipe(map((productData) => {
         return productData.products.map(product => {
           return {

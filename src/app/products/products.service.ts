@@ -17,7 +17,7 @@ class ProductsService{
 
 
   getProducts() {
-    this.http.get<{message: string, products: any}>('http://localhost:3000/api/products')
+    this.http.get<{message: string, products: any}>('https://vendoorback.herokuapp.com/api/products')
       .pipe(map((productData) => {
         return productData.products.map(product => {
           return {
@@ -39,7 +39,7 @@ class ProductsService{
   }
 
   getProductsByCat(catName: string) {
-    this.http.get<{message: string, products: any}>('http://localhost:3000/api/products/cat/' + catName)
+    this.http.get<{message: string, products: any}>('https://vendoorback.herokuapp.com/api/products/cat/' + catName)
       .pipe(map((productData) => {
         return productData.products.map(product => {
           return {
@@ -65,7 +65,7 @@ class ProductsService{
   }
 
   getProductsByCoop(coopId: string) {
-    this.http.get<{message: string, products: any}>('http://localhost:3000/api/products/coop/' + coopId)
+    this.http.get<{message: string, products: any}>('https://vendoorback.herokuapp.com/api/products/coop/' + coopId)
       .pipe(map((productData) => {
         return productData.products.map(product => {
           return {
@@ -106,7 +106,7 @@ class ProductsService{
         note: 0
       };
     console.log("ready to send");
-    this.http.post<{message: string, productId: string}>('http://localhost:3000/api/products', product)
+    this.http.post<{message: string, productId: string}>('https://vendoorback.herokuapp.com/api/products', product)
       .subscribe((responseData) => {
         console.log("sent");
         console.log(responseData);
@@ -119,7 +119,7 @@ class ProductsService{
   }
 
   deleteProduct(productId: string){
-    this.http.delete("http://localhost:3000/api/products/" + productId)
+    this.http.delete("https://vendoorback.herokuapp.com/api/products/" + productId)
       .subscribe(() => {
         console.log("Deleted");
         const updatedProducts = this.products.filter(product => product.id !== productId);

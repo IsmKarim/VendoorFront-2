@@ -107,7 +107,7 @@ export class AuthService{
   }
 
   loginCoop(email: string, password: string){
-    this.http.post<{currId: string, token: string, expiresIn: number}>("http://localhost:3000/api/coop/login", {email: email, password: password})
+    this.http.post<{currId: string, token: string, expiresIn: number}>("https://vendoorback.herokuapp.com/api/coop/login", {email: email, password: password})
       .subscribe(response => {
         this.currId = response.currId;
         const token = response.token;
@@ -135,7 +135,7 @@ export class AuthService{
   }
 
   getAllUsers(){
-    this.http.get<{message: string, users: any}>("http://localhost:3000/api/user")
+    this.http.get<{message: string, users: any}>("https://vendoorback.herokuapp.com/api/user")
     .pipe(map((userData) => {
       return userData.users.map(user => {
         return {
@@ -158,7 +158,7 @@ export class AuthService{
   }
 
   getAllCoops(){
-    this.http.get<{message: string, coops: any}>("http://localhost:3000/api/coop")
+    this.http.get<{message: string, coops: any}>("https://vendoorback.herokuapp.com/api/coop")
     .pipe(map((coopData) => {
       return coopData.coops.map(coop => {
         return {
@@ -182,7 +182,7 @@ export class AuthService{
   }
 
   deleteUser(id: string){
-    this.http.delete("http://localhost:3000/api/user/" + id)
+    this.http.delete("https://vendoorback.herokuapp.com/api/user/" + id)
       .subscribe(() => {
         console.log("Deleted");
         const updatedUsers = this.users_list.filter(user => user.id !== id);
@@ -192,7 +192,7 @@ export class AuthService{
   }
 
   deleteCoop(id: string){
-    this.http.delete("http://localhost:3000/api/coop/" + id)
+    this.http.delete("https://vendoorback.herokuapp.com/api/coop/" + id)
       .subscribe(() => {
         console.log("Deleted");
         const updatedProducts = this.coops_list.filter(coop => coop.id !== id);

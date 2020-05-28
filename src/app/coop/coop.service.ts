@@ -14,7 +14,7 @@ export class CoopService{
 
 
   getCoops() {
-    this.http.get<{message: string, cooperatives: any}>('http://localhost:3000/api/coop')
+    this.http.get<{message: string, cooperatives: any}>('https://vendoorback.herokuapp.com/api/coop')
       .pipe(map((coopData) => {
         console.log("hello");
         console.log(coopData.cooperatives);
