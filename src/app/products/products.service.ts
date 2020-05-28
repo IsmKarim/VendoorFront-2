@@ -26,7 +26,7 @@ class ProductsService{
             coop: product.coop,
             description: product.description,
             category : product.category,
-            image: product.image,
+            image: "assets/img/products/"+product.image+".PNG",
             price: product.price,
             note: product.note
           };
@@ -48,7 +48,7 @@ class ProductsService{
             coop: product.coop,
             description: product.description,
             category : product.category,
-            image: product.image,
+            image: "assets/img/products/"+product.image+".PNG",
             price: product.price,
             note: product.note
           };
@@ -101,7 +101,7 @@ class ProductsService{
         coop: null,
         description: description,
         category : category,
-        image: image,
+        image: "assets/img/products/"+image+".PNG",
         price: price,
         note: 0
       };
