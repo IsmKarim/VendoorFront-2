@@ -61,7 +61,7 @@ class ProductsService{
   }
 
   getProductsById(productId: string) {
-    return this.http.get<{_id: string, name: string, coop: string, description: string, category: string, image: string, price: number, note: number}>('http://localhost:3000/api/products/' + productId);
+    return this.http.get<{_id: string, name: string, coop: string, description: string, category: string, image: string, price: number, note: number}>('https://vendoorback.herokuapp.com/products/' + productId);
   }
 
   getProductsByCoop(coopId: string) {
@@ -74,7 +74,7 @@ class ProductsService{
             coop: product.coop,
             description: product.description,
             category : product.category,
-            image: "src/assets/img/products/"+product.image,
+            image: "assets/img/products/"+product.image+".PNG",
             price: product.price,
             note: product.note
           };

@@ -37,7 +37,7 @@ export class CoopService{
   }
 
   getCoopById(coopId: string) {
-    return this.http.get<{_id: string, name: string, email: string, image: string, description: string, address: string, tel: string}>('http://localhost:3000/api/coop/' + coopId);
+    return this.http.get<{_id: string, name: string, email: string, image: string, description: string, address: string, tel: string}>('https://vendoorback.herokuapp.com/coop/' + coopId);
   }
 
   getCoopUpdateListener(){
