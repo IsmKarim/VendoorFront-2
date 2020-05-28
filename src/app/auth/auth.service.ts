@@ -52,7 +52,7 @@ export class AuthService{
 
   createUser(username: string, email: string, firstname: string, lastname: string, password: string){
     const authData: AuthData = {username: username, email: email, firstname: firstname, lastname: lastname, password: password, type: false}
-    this.http.post("http://localhost:3000/api/user/signup", authData)
+    this.http.post("https://vendoorback.herokuapp.com/api/user/signup", authData)
       .subscribe(response => {
         console.log(response);
         this.router.navigate(['/login']);
@@ -71,7 +71,7 @@ export class AuthService{
         tel: tel,
         password: password,
     }
-    this.http.post("http://localhost:3000/api/coop/signup", authCoopData)
+    this.http.post("https://vendoorback.herokuapp.com/api/coop/signup", authCoopData)
       .subscribe(response => {
         console.log(response);
         this.router.navigate(['/loginCoop']);
@@ -86,7 +86,7 @@ export class AuthService{
       this.authTypeListener.next("admin");
       this.router.navigate(['/admin/users']);
     }else{
-      this.http.post<{currId: string, token: string, expiresIn: number}>("http://localhost:3000/api/user/login", {email: email, password: password})
+      this.http.post<{currId: string, token: string, expiresIn: number}>("https://vendoorback.herokuapp.com/api/user/login", {email: email, password: password})
       .subscribe(response => {
         this.currId = response.currId;
         const token = response.token;
