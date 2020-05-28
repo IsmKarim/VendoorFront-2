@@ -74,7 +74,7 @@ class ProductsService{
             coop: product.coop,
             description: product.description,
             category : product.category,
-            image: product.image,
+            image: "assets/img/products/"+product.image,
             price: product.price,
             note: product.note
           };
